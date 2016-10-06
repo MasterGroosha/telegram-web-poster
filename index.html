@@ -100,6 +100,8 @@ $("#sendMessage").click(function(){
 
 	if($("#rememberToken").prop('checked')){
 		localStorage.token = $("#token").val();
+	}else{
+		localStorage.removeItem('token');
 	}
 
 	$("#response").css('display', 'block');
