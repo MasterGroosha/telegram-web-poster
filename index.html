@@ -92,8 +92,8 @@ $("#sendMessage").click(function(){
 			.replace(/<br>/g, '\n')
 			.replace(/&nbsp;/g, ' ');
 	data.parse_mode = 'HTML';
-	data.disable_notification = $("#diableNotifications").prop('checked');
-	data.disable_web_page_preview = $("#diablePreview").prop('checked');
+	data.disable_notification = $("#disableNotifications").prop('checked');
+	data.disable_web_page_preview = $("#disablePreview").prop('checked');
 
 	if($("#hiddenImage").prop('checked'))
 		data.text = "<a href=\""+$("#linkToImage").val()+"\">&#8203;</a>&#8203;" + data.text;
