@@ -94,6 +94,17 @@ $("#sendMessage").click(function(){
 	}else{
 		url += '/sendMessage';
 	}
+	
+	if($('#UrlButton').prop('checked')){
+		if($('#linkToUrlButtonText').val() && $('#linkToUrlButtonUrl').val()) {
+			var markup = JSON.stringify({ inline_keyboard: [
+					[{ text: $('#linkToUrlButtonText').val(), url: $('#linkToUrlButtonUrl').val() }]
+				]
+			})
+		}		
+	} else {
+		var markup = ""
+	}
 
 	data.chat_id = $("#chat_id").val();
 	data.text = $("div.editable").html()
@@ -105,6 +116,7 @@ $("#sendMessage").click(function(){
 	data.parse_mode = 'HTML';
 	data.disable_notification = $("#diableNotifications").prop('checked');
 	data.disable_web_page_preview = $("#diablePreview").prop('checked');
+	data.reply_markup = markup;
 
 	if($("#hiddenImage").prop('checked'))
 		data.text = "<a href=\""+$("#linkToImage").val()+"\">&#8203;</a>&#8203;" + data.text;
